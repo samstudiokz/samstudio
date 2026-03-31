@@ -109,10 +109,15 @@
   justify-items:center;
 }
 
+    .hero-title .title-main{
+  font-size:1.12em;
+}
+
     .hero-title .price-pill{
   display:inline-flex;
   align-items:center;
   justify-content:center;
+  margin-top:8px;
   padding:14px 24px;
   border-radius:999px;
   background:linear-gradient(135deg, rgba(255,79,163,0.16), rgba(255,255,255,0.98));
@@ -934,11 +939,12 @@
       }
 
       .hero-copy{
-        padding:32px 22px 18px;
+        padding:48px 22px 24px;
       }
 
       .hero-top{
-        gap:18px;
+        gap:22px;
+        padding-top:4px;
       }
 
       .hero-actions{
@@ -1028,8 +1034,12 @@
   width:38px;
   height:38px;
 }
-      .hero{padding-top:20px}
+      .hero{padding-top:24px}
       .hero-shell{border-radius:26px}
+
+      .hero-shell .hero-copy{
+        padding:58px 22px 26px;
+      }
 
       .hero-copy,
       .hero-visual,
@@ -1054,9 +1064,18 @@
         gap:10px;
       }
 
+      .hero-title .title-main{
+        font-size:1.08em;
+      }
+
       .hero-title .price-pill{
+        margin-top:10px;
         padding:10px 18px;
         font-size:0.64em;
+      }
+
+      .hero-actions{
+        margin-top:6px;
       }
 
       h2{
@@ -1371,8 +1390,8 @@
                 
                 
                 <h1 class="hero-title">
-                  <span>Ваш&nbsp;личный сайт</span>
-                  <span class="price-pill">от 29.999 ₸</span>
+                  <span class="title-main">Ваш&nbsp;личный сайт ?</span>
+                  <span class="price-pill">от 29.999 ₸!</span>
                 </h1>
                 <p class="lead">
                   Пробный вариант вашего сайта БЕСПЛАТНО! Жми кнопку!
