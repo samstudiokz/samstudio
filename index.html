@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Амир — Дизайн и разработка сайтов</title>
+  <meta name="description" content="Амир Кадырбаев — разработка современных сайтов для бизнеса: структура, дизайн, верстка и запуск под ключ." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --bg-soft:#fff5fa;
+      --paper:rgba(255,255,255,0.92);
+      --paper-strong:#ffffff;
+      --text:#191919;
+      --muted:#6f6f78;
+      --line:rgba(20,20,20,0.08);
+      --accent:#ff4fa3;
+      --accent-dark:#e13f8f;
+      --accent-soft:#ffe7f2;
+      --accent-soft-2:#fff1f7;
+      --shadow:0 22px 55px rgba(0,0,0,0.07);
+      --radius:28px;
+      --radius-sm:18px;
+      --container:1180px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+
+    body{
+      font-family:'Manrope',sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255, 212, 232, 0.75), transparent 34%),
+        radial-gradient(circle at 90% 18%, rgba(255, 228, 240, 0.95), transparent 38%),
+        radial-gradient(circle at 50% 100%, rgba(255, 237, 246, 0.7), transparent 32%),
+        #ffffff;
+      line-height:1.5;
+      overflow-x:hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
+      background-size:52px 52px;
+      mask-image:linear-gradient(to bottom, rgba(0,0,0,0.22), transparent 88%);
+      z-index:-1;
+    }
+
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+
+    .container{
+      width:min(var(--container), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .section{padding:100px 0}
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:18px;
+      color:var(--accent);
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-weight:800;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:34px;
+      height:1px;
+      background:currentColor;
+      opacity:.7;
+    }
+
+    h1,h2,.display{
+  font-family:'Inter',sans-serif;
+  line-height:1.02;
+  letter-spacing:-0.02em;
+  font-weight:600;
+}
+
+    h1{
+  font-size:clamp(48px, 7vw, 88px);
+  max-width:16ch;
+  margin:0 auto;
+}
+
+    h2{
+      font-size:clamp(38px, 5vw, 64px);
+      max-width:10ch;
+    }
+
+    h3{
+      font-size:24px;
+      font-weight:800;
+      line-height:1.1;
+      letter-spacing:-0.02em;
+    }
+
+    .lead{
+  font-size:clamp(17px, 2vw, 20px);
+  color:var(--muted);
+  max-width:60ch;
+  margin:0 auto;
+  line-height:1.6;
+}
+
+    .muted{color:var(--muted)}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(255,255,255,0.78);
+      border-bottom:1px solid rgba(20,20,20,0.05);
+    }
+
+    .nav{
+      min-height:84px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:0;
+  text-transform:none;
+  min-width:0;
+}
+
+.brand-mark{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+  overflow:hidden;
+  background:linear-gradient(135deg, var(--accent), #ff7cbf);
+  box-shadow:0 12px 28px rgba(255,79,163,0.24);
+}
+
+.brand-mark img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:26px;
+    }
+
+    .nav-links a{
+      font-size:15px;
+      color:var(--muted);
+      transition:.25s ease;
+    }
+
+    .nav-links a:hover{color:var(--text)}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:54px;
+      padding:0 24px;
+      border-radius:999px;
+      border:1px solid transparent;
+      font-size:15px;
+      font-weight:800;
+      transition:.25s ease;
+      cursor:pointer;
+      text-align:center;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--accent), #ff78ba);
+      color:#fff;
+      box-shadow:0 14px 34px rgba(255,79,163,0.28);
+    }
+    
+    .btn-dark{
+  background:#111;
+  color:#fff;
+  border:1px solid #111;
+}
+
+.btn-dark:hover{
+  background:#000;
+  transform:translateY(-2px);
+}
+
+.btn-dark{
+  background:#111;
+  color:#fff;
+  border:1px solid #111;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      background:linear-gradient(135deg, var(--accent-dark), var(--accent));
+      box-shadow:0 18px 38px rgba(255,79,163,0.32);
+    }
+
+    .btn-secondary{
+      border-color:rgba(20,20,20,0.08);
+      background:rgba(255,255,255,0.72);
+      color:var(--text);
+    }
+
+    .btn-secondary:hover{
+      transform:translateY(-2px);
+      background:var(--accent-soft);
+      border-color:rgba(255,79,163,0.18);
+    }
+
+    .burger{
+      display:none;
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.85);
+      color:var(--text);
+      font-size:20px;
+      cursor:pointer;
+      flex-shrink:0;
+    }
+
+    .hero{
+      padding:48px 0 38px;
+    }
+
+    .hero-shell{
+      position:relative;
+      border:1px solid rgba(20,20,20,0.06);
+      border-radius:38px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.72));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:18px;
+      align-items:stretch;
+      min-height:760px;
+    }
+
+    .hero-copy{
+  padding:48px 48px 54px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  gap:24px;
+}
+
+    .hero-top{
+  display:grid;
+  gap:20px;
+  justify-items:center;
+}
+
+    .hero-note{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:fit-content;
+      padding:10px 14px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      border:1px solid rgba(255,79,163,0.14);
+      color:#9d4f77;
+      font-size:14px;
+      font-weight:800;
+    }
+
+    .hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  justify-content:center;
+}
+
+.hero-actions .btn{
+  padding:18px 32px;
+  font-size:15px;
+}
+
+    .hero-bottom{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:14px;
+    }
+
+    .metric{
+      padding:18px 18px 16px;
+      border-radius:22px;
+      background:rgba(255,255,255,0.84);
+      border:1px solid rgba(20,20,20,0.06);
+      box-shadow:0 10px 28px rgba(0,0,0,0.04);
+      min-width:0;
+    }
+
+    .metric strong{
+      display:block;
+      font-size:28px;
+      margin-bottom:4px;
+      letter-spacing:-0.03em;
+      overflow-wrap:anywhere;
+    }
+
+    .hero-visual{
+      position:relative;
+      padding:26px;
+      display:grid;
+      grid-template-rows:auto 1fr auto;
+      gap:18px;
+      background:
+        linear-gradient(145deg, rgba(255,79,163,0.06), rgba(255,235,244,0.9)),
+        rgba(255,255,255,0.56);
+      border-left:1px solid rgba(20,20,20,0.05);
+      min-width:0;
+    }
+
+    .visual-card,
+    .floating-card,
+    .quote-card,
+    .service-card,
+    .process-card,
+    .portfolio-card,
+    .price-card,
+    .contact-card,
+    .form-card,
+    .reason-card{
+      border-radius:var(--radius);
+      background:var(--paper);
+      border:1px solid rgba(20,20,20,0.06);
+      box-shadow:var(--shadow);
+      min-width:0;
+    }
+
+    .visual-card{
+      padding:20px;
+      display:grid;
+      gap:18px;
+    }
+
+    .visual-head{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      align-items:center;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .dots{
+      display:flex;
+      gap:6px;
+      flex-shrink:0;
+    }
+
+    .dots span{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:rgba(255,79,163,0.28);
+    }
+
+    .showcase{
+      border-radius:24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.2), rgba(255,79,163,0.08)),
+        linear-gradient(135deg, #fff7fb, #ffe7f2);
+      padding:22px;
+      min-height:320px;
+      display:grid;
+      align-items:end;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .showcase::before{
+      content:"";
+      position:absolute;
+      right:-40px;
+      top:26px;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,79,163,0.18), transparent 70%);
+    }
+
+    .showcase-panel{
+      position:relative;
+      display:grid;
+      gap:14px;
+      padding:24px;
+      border-radius:24px;
+      background:rgba(255,255,255,0.9);
+      border:1px solid rgba(255,79,163,0.08);
+      width:min(100%, 360px);
+      z-index:1;
+    }
+
+    .showcase-panel h3{
+      font-family:'Inter',sans-serif;
+      font-size:32px;
+      font-weight:800;
+      line-height:1.05;
+      letter-spacing:-0.03em;
+    }
+
+    .mini-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .mini-tags span{
+      padding:8px 12px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      font-size:12px;
+      font-weight:800;
+      color:#9d4f77;
+    }
+
+    .floating-card{
+      position:absolute;
+      right:40px;
+      top:150px;
+      width:220px;
+      padding:18px;
+      backdrop-filter:blur(10px);
+      background:rgba(255,255,255,0.84);
+    }
+
+    .floating-card strong{
+      display:block;
+      font-size:18px;
+      margin-bottom:6px;
+    }
+
+    .quote-card{
+      padding:22px;
+      display:grid;
+      gap:10px;
+      align-self:end;
+    }
+
+    .quote-card p{
+      font-size:18px;
+      max-width:34ch;
+    }
+
+    .section-head{
+      margin-bottom:40px;
+      display:grid;
+      gap:10px;
+    }
+
+    .editorial-grid{
+      display:grid;
+      grid-template-columns:.86fr 1.14fr;
+      gap:22px;
+      align-items:start;
+    }
+
+    .sticky-note{
+      position:sticky;
+      top:106px;
+      padding:34px;
+      border-radius:32px;
+      background:rgba(255,246,250,0.9);
+      border:1px solid rgba(255,79,163,0.08);
+      box-shadow:var(--shadow);
+    }
+
+    .sticky-note .display{
+      font-size:clamp(34px, 4vw, 54px);
+      margin-bottom:18px;
+      display:block;
+    }
+
+    .reasons-list,
+    .services-list,
+    .process-list,
+    .portfolio-list,
+    .pricing-list{
+      display:grid;
+      gap:18px;
+    }
+
+    .reason-card,
+    .service-card,
+    .process-card,
+    .portfolio-card,
+    .price-card{
+      padding:28px;
+    }
+
+    .reason-top,
+    .service-top,
+    .process-top,
+    .portfolio-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:16px;
+    }
+
+    .index{
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--accent);
+      white-space:nowrap;
+    }
+
+    .service-grid,
+    .portfolio-grid,
+    .pricing-grid,
+    .process-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:20px;
+    }
+
+    .portfolio-card{
+      min-height:320px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,247,251,0.88)),
+        #fff;
+    }
+
+    .portfolio-preview{
+      min-height:150px;
+      border-radius:22px;
+      border:1px solid rgba(255,79,163,0.08);
+      background:linear-gradient(135deg, #fff0f7, #ffe2ef);
+      margin-bottom:18px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .portfolio-preview::before,
+    .portfolio-preview::after{
+      content:"";
+      position:absolute;
+      border-radius:24px;
+      background:rgba(255,255,255,0.82);
+      border:1px solid rgba(255,79,163,0.06);
+    }
+
+    .portfolio-preview::before{
+      left:20px;
+      right:70px;
+      top:24px;
+      height:32px;
+    }
+
+    .portfolio-preview::after{
+      left:20px;
+      right:20px;
+      top:74px;
+      bottom:20px;
+    }
+
+    .price-card.featured{
+      background:linear-gradient(180deg, #ff4fa3, #f03b94);
+      color:white;
+      box-shadow:0 22px 48px rgba(255,79,163,0.25);
+    }
+
+    .price-card.featured .muted,
+    .price-card.featured li,
+    .price-card.featured .price-small{
+      color:rgba(255,255,255,0.82);
+    }
+
+    .price-card.featured .btn-secondary{
+      background:rgba(255,255,255,0.18);
+      border-color:rgba(255,255,255,0.2);
+      color:#fff;
+    }
+
+    .price-card.featured .btn-secondary:hover{
+      background:rgba(255,255,255,0.24);
+    }
+
+    .price{
+      font-family:'Inter',sans-serif;
+      font-size:48px;
+      font-weight:900;
+      line-height:.95;
+      margin:16px 0 12px;
+      letter-spacing:-0.04em;
+    }
+
+    .price-small{
+      font-size:15px;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .price-list{
+      display:grid;
+      gap:10px;
+      margin:18px 0 24px;
+    }
+
+    .price-list li{
+      list-style:none;
+      color:var(--muted);
+      display:flex;
+      gap:10px;
+    }
+
+    .price-list li::before{
+      content:"—";
+      color:var(--accent);
+    }
+
+    .contact-layout{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:22px;
+      align-items:start;
+    }
+
+    .contact-card,
+    .form-card{
+      padding:34px;
+    }
+
+    .contact-points{
+      display:grid;
+      gap:14px;
+      margin-top:24px;
+    }
+
+    .point{
+      padding:18px;
+      border-radius:18px;
+      background:rgba(255,250,252,0.92);
+      border:1px solid rgba(20,20,20,0.06);
+    }
+
+    .point span{
+      display:block;
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:4px;
+    }
+
+    form{
+      display:grid;
+      gap:16px;
+    }
+
+    .field{
+      display:grid;
+      gap:8px;
+    }
+
+    label{
+      font-size:14px;
+      font-weight:700;
+    }
+
+    input,textarea{
+      width:100%;
+      font:inherit;
+      border:1px solid rgba(20,20,20,0.08);
+      border-radius:18px;
+      background:rgba(255,255,255,0.92);
+      padding:16px 18px;
+      color:var(--text);
+      outline:none;
+      transition:.25s ease;
+    }
+
+    input::placeholder,textarea::placeholder{
+      color:#9a9aa3;
+    }
+
+    input:focus,textarea:focus{
+      border-color:rgba(255,79,163,0.35);
+      background:#fff;
+      box-shadow:0 0 0 4px rgba(255,79,163,0.08);
+    }
+
+    textarea{
+      min-height:160px;
+      resize:vertical;
+    }
+
+    .note{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .footer{
+      padding:28px 0 44px;
+    }
+
+    .footer-line{
+      height:1px;
+      background:rgba(20,20,20,0.08);
+      margin-bottom:24px;
+    }
+
+    .footer-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      color:var(--muted);
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(22px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+.about-me-block{
+  padding-top:40px;
+}
+
+.about-me-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:24px;
+}
+
+.about-me-top{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+}
+
+.about-me-avatar{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  overflow:hidden;
+  border:4px solid #111;
+  background:#f3f3f3;
+}
+
+.about-me-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.about-me-name{
+  min-width:340px;
+  text-align:center;
+  padding:12px 24px;
+  border:3px solid #111;
+  border-radius:16px;
+  background:#fff;
+  font-size:18px;
+  font-weight:600;
+}
+
+.about-me-card{
+  width:100%;
+  max-width:920px;
+  border:4px solid #111;
+  border-radius:24px;
+  background:#fff;
+  padding:28px;
+}
+
+.about-me-card h2{
+  font-family:'Inter',sans-serif;
+  font-size:36px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+.about-me-card p{
+  font-size:20px;
+  line-height:1.7;
+  margin-bottom:14px;
+  color:#111;
+}
+
+    @media (max-width:1120px){
+      .hero-grid,
+      .editorial-grid,
+      .contact-layout{
+        grid-template-columns:1fr;
+      }
+
+      .hero-grid{min-height:auto}
+      .sticky-note{position:static}
+      .floating-card{position:static;width:100%}
+    }
+
+    @media (max-width:860px){
+
+.hero-actions{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+
+.hero-actions .btn{
+  width:auto;
+}
+
+      .nav{
+        min-height:74px;
+      }
+
+      .nav-links{
+        position:fixed;
+        inset:74px 12px auto 12px;
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        gap:10px;
+        padding:14px;
+        border-radius:20px;
+        background:rgba(255,255,255,0.97);
+        border:1px solid rgba(20,20,20,0.06);
+        box-shadow:var(--shadow);
+        transform:translateY(-14px);
+        opacity:0;
+        pointer-events:none;
+        transition:.25s ease;
+      }
+
+      .nav-links a{
+        padding:12px 14px;
+        border-radius:14px;
+        background:rgba(255,255,255,0.88);
+      }
+
+      .nav-links.active{
+        transform:translateY(0);
+        opacity:1;
+        pointer-events:auto;
+      }
+
+      .burger{display:inline-grid;place-items:center}
+      .nav-action{display:none}
+
+      .hero-grid,
+      .editorial-grid,
+      .contact-layout{
+        grid-template-columns:1fr;
+      }
+
+      .hero-grid{
+        min-height:auto;
+      }
+
+      .hero-copy{
+        padding:32px 22px 18px;
+      }
+
+      .hero-top{
+        gap:18px;
+      }
+
+      .hero-actions{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+
+.btn-big{
+  width:100%;
+  max-width:320px;
+}
+
+.btn-medium{
+  width:90%;
+  max-width:290px;
+}
+
+.btn-small{
+  width:80%;
+  max-width:260px;
+}
+
+      .hero-visual{
+        padding:18px;
+        border-left:0;
+        border-top:1px solid rgba(20,20,20,0.05);
+      }
+
+      .floating-card{
+        position:static;
+        width:100%;
+      }
+
+      .sticky-note{
+        position:static;
+      }
+
+      .hero-bottom,
+      .service-grid,
+      .portfolio-grid,
+      .pricing-grid,
+      .process-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:640px){
+      .about-me-avatar{
+  width:120px;
+  height:120px;
+}
+
+.about-me-name{
+  min-width:auto;
+  width:100%;
+  max-width:280px;
+  font-size:16px;
+  padding:10px 16px;
+}
+
+.about-me-card{
+  padding:20px;
+  border-radius:20px;
+}
+
+.about-me-card h2{
+  font-size:28px;
+}
+
+.about-me-card p{
+  font-size:16px;
+  line-height:1.6;
+}
+      .section{padding:72px 0}
+      .container{width:min(var(--container), calc(100% - 20px))}
+      .topbar{background:rgba(255,255,255,0.9)}
+
+.brand{
+  gap:10px;
+  font-size:13px;
+  letter-spacing:0;
+}
+
+.brand-mark{
+  width:38px;
+  height:38px;
+}
+      .hero{padding-top:20px}
+      .hero-shell{border-radius:26px}
+
+      .hero-copy,
+      .hero-visual,
+      .contact-card,
+      .form-card,
+      .reason-card,
+      .service-card,
+      .process-card,
+      .portfolio-card,
+      .price-card,
+      .sticky-note,
+      .visual-card,
+      .quote-card{padding:20px}
+
+      h1{
+        font-size:clamp(36px, 12vw, 52px);
+        max-width:100%;
+      }
+
+      h2{
+        font-size:clamp(30px, 10vw, 42px);
+        max-width:100%;
+      }
+
+      h3{font-size:21px}
+      .lead{font-size:16px}
+
+      .eyebrow{
+        font-size:11px;
+        letter-spacing:.14em;
+        gap:10px;
+      }
+
+      .eyebrow::before{width:24px}
+
+      .hero-note{
+        width:100%;
+        justify-content:center;
+        text-align:center;
+        padding:10px 12px;
+        font-size:13px;
+      }
+
+      .metric{
+        padding:16px;
+        border-radius:18px;
+      }
+
+      .metric strong{font-size:24px}
+      .visual-card{gap:14px}
+
+      .showcase{
+        min-height:220px;
+        padding:16px;
+        border-radius:20px;
+      }
+
+      .showcase-panel{
+        width:100%;
+        padding:18px;
+        border-radius:18px;
+      }
+
+      .showcase-panel h3{font-size:24px}
+
+      .mini-tags{gap:8px}
+      .mini-tags span{
+        font-size:11px;
+        padding:7px 10px;
+      }
+
+      .quote-card p{font-size:16px}
+
+      .reason-top,
+      .service-top,
+      .process-top,
+      .portfolio-top{
+        flex-direction:column;
+        gap:8px;
+      }
+
+      .price{font-size:38px}
+
+      .btn{
+        min-height:50px;
+        padding:0 18px;
+        font-size:14px;
+      }
+
+      input,textarea{
+        padding:14px 16px;
+        border-radius:16px;
+      }
+
+      .footer{
+        padding:20px 0 34px;
+      }
+
+      .footer-row{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+
+    @media (max-width:420px){
+      .container{width:calc(100% - 16px)}
+
+      .hero-copy,
+      .hero-visual,
+      .contact-card,
+      .form-card,
+      .reason-card,
+      .service-card,
+      .process-card,
+      .portfolio-card,
+      .price-card,
+      .sticky-note,
+      .visual-card,
+      .quote-card{padding:18px}
+
+      h1{font-size:34px}
+      h2{font-size:28px}
+      .showcase-panel h3{font-size:22px}
+
+      .hero-note,
+      .lead,
+      .quote-card p{font-size:15px}
+    }
+
+.portfolio-strip{
+  margin-top:40px;
+  overflow:hidden;
+  padding:8px 0 4px;
+}
+
+.strip-track{
+  display:flex;
+  width:max-content;
+  will-change:transform;
+  animation:scroll 24s linear infinite;
+}
+
+.strip-group{
+  display:flex;
+  align-items:flex-start;
+  gap:24px;
+  padding-right:24px;
+}
+
+.strip-item{
+  display:grid;
+  align-items:center;
+  gap:14px;
+  flex-shrink:0;
+  width:210px;
+}
+
+.strip-phone{
+  position:relative;
+  width:100%;
+  aspect-ratio:9 / 19.5;
+  padding:6px;
+  border-radius:32px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,241,247,0.98));
+  border:1px solid rgba(20,20,20,0.08);
+  box-shadow:0 18px 38px rgba(0,0,0,0.1);
+  overflow:hidden;
+}
+
+.strip-phone::before{
+  content:"";
+  position:absolute;
+  top:12px;
+  left:50%;
+  width:34%;
+  height:5px;
+  border-radius:999px;
+  background:rgba(25,25,25,0.14);
+  transform:translateX(-50%);
+  z-index:1;
+}
+
+.strip-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
+  border-radius:26px;
+  display:block;
+  background:#fff;
+}
+
+.strip-phone.is-empty::after{
+  content:"Добавьте скрин";
+  position:absolute;
+  inset:6px;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  border-radius:26px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,243,248,0.98));
+  color:var(--muted);
+  font-size:14px;
+  font-weight:700;
+  line-height:1.35;
+  text-align:center;
+}
+
+.strip-item span{
+  font-size:14px;
+  line-height:1.25;
+  color:#444;
+  font-weight:600;
+  max-width:18ch;
+  text-align:center;
+}
+
+@keyframes scroll{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+@media (max-width:640px){
+
+  .strip-group{
+    gap:16px;
+    padding-right:16px;
+  }
+
+  .strip-item{
+    width:152px;
+  }
+
+  .strip-phone{
+    border-radius:26px;
+  }
+
+  .strip-item img{
+  border-radius:20px;
+}
+
+.strip-item span{
+  font-size:12px;
+}
+
+  .strip-track img{
+    width:100%;
+  }
+}
+
+.portfolio-title{
+  margin-top:30px;
+  margin-bottom:12px;
+
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:0.18em;
+
+  color:rgba(0,0,0,0.5);
+  text-align:center;
+}
+
+.portfolio-title::before{
+  content:"";
+  display:block;
+  width:40px;
+  height:1px;
+  background:var(--accent);
+  margin:0 auto 10px;
+  opacity:0.6;
+}
+
+.btn-big{
+  min-width:240px;
+}
+
+.btn-medium{
+  min-width:210px;
+}
+
+.btn-small{
+  min-width:180px;
+}
+
+.hero-actions{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="На главную">
+        <span class="brand-mark">
+  <img src="https://i.ibb.co.com/YBbcx510/image.png" alt="Амир">
+</span>
+        <span>Меня зовут Амир!</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">Подход</a>
+        <a href="#services">Услуги</a>
+      
+        <a href="#pricing">Пакеты</a>
+        <a href="#contact">Контакт</a>
+      </nav>
+
+      <a href="#contact" class="btn btn-primary nav-action">Обсудить проект</a>
+      <button class="burger" id="burger" aria-label="Открыть меню">☰</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-shell reveal">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="hero-top">
+                
+                
+                <h1>Ваш личный сайт - от 29.999 ₸</h1>
+                <p class="lead">
+                  Пробный вариант вашего сайта БЕСПЛАТНО! Жми кнопку!
+                </p>
+                <div class="hero-actions">
+  <a href="#contact" class="btn btn-primary btn-big">Купить сайт</a>
+  <a href="#pricing" class="btn btn-dark btn-medium">Сколько стоит?</a>
+  <a href="#about-me" class="btn btn-secondary btn-small">Кто я?</a>
+</div>
+                <div class="portfolio-title">Мои работы</div>
+                <section class="portfolio-strip">
+  <div class="strip-track">
+    <div class="strip-group">
+      <div class="strip-item">
+        <div class="strip-phone">
+          <img src="https://i.ibb.co.com/8gcbcrfk/image.png" alt="Сайт 1" loading="lazy">
+        </div>
+        <span>QR Меню Кафе "Алмаз" Луначарского 32/2</span>
+      </div>
+
+      <div class="strip-item">
+        <div class="strip-phone">
+          <img src="https://i.ibb.co.com/vCghsBKc/image.png" alt="Сайт 2" loading="lazy">
+        </div>
+        <span>QR Меню Кафе "Алмаз" Можно звать официанта!</span>
+      </div>
+
+      <div class="strip-item">
+        <div class="strip-phone">
+          <img src="https://i.ibb.co.com/Xf4ysqqw/image.png" alt="Сайт 3" loading="lazy">
+        </div>
+        <span>Кафе "Life Vibe" Улица Луганская, 132/1</span>
+      </div>
+
+      <div class="strip-item">
+        <div class="strip-phone">
+          <img src="https://i.ibb.co.com/5XmTMMQx/image.png" alt="Сайт 4" loading="lazy">
+        </div>
+        <span>Магазин "MuscleLab" Улица Металлистов, 36а</span>
+      </div>
+
+      <div class="strip-item">
+        <div class="strip-phone">
+          <img src="https://i.ibb.co.com/XxcLxFbP/image.png" alt="Сайт 5" loading="lazy">
+        </div>
+        <span>Кафе "Чайхана" Луначарского 38 А</span>
+      </div>
+    </div>
+
+    <div class="strip-group" aria-hidden="true">
+      <div class="strip-item">
+        <div class="strip-phone">
+          <img src="https://i.ibb.co.com/8gcbcrfk/image.png" alt="Сайт 1" loading="lazy">
+        </div>
+        <span>QR Меню Кафе "Алмаз" Луначарского 32/2</span>
+      </div>
+
+      <div class="strip-item">
+        <div class="strip-phone">
+          <img src="https://i.ibb.co.com/vCghsBKc/image.png" alt="Сайт 2" loading="lazy">
+        </div>
+        <span>QR Меню Кафе "Алмаз" Можно звать официанта!</span>
+      </div>
+
+      <div class="strip-item">
+        <div class="strip-phone">
+          <img src="https://i.ibb.co.com/Xf4ysqqw/image.png" loading="lazy">
+        </div>
+        <span>Кафе "Life Vibe" Улица Луганская, 132/1</span>
+      </div>
+
+      <div class="strip-item">
+        <div class="strip-phone">
+          <img src="https://i.ibb.co.com/5XmTMMQx/image.png" alt="Сайт 4" loading="lazy">
+        </div>
+        <span>Магазин "MuscleLab" Улица Металлистов, 36а</span>
+      </div>
+
+      <div class="strip-item">
+        <div class="strip-phone">
+          <img src="https://i.ibb.co.com/XxcLxFbP/image.png" alt="Сайт 5" loading="lazy">
+        </div>
+        <span>Сайт доставок Кафе "Чайхана"</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section about-me-block" id="about-me">
+  <div class="container">
+    <div class="about-me-wrap">
+      <div class="about-me-top">
+        <div class="about-me-avatar">
+          <img src="https://i.ibb.co.com/39gnTXwV/5346078323597055062.jpg" alt="Амир">
+        </div>
+
+        <div class="about-me-name">Амир Кадырбаев</div>
+      </div>
+
+      <div class="about-me-card">
+        <h2>Обо мне</h2>
+        <p>
+          Я учусь в Карагандинском Высшем Политехническом Колледже на программиста!
+          
+        </p>
+
+        <p>
+          Мне 19 лет, раньше работав официантом мне как-то пришла идея разрабоать сайт для кафе, что у меня прекрассно получилось!
+        </p>
+
+        <p>
+          Для меня важно, чтобы сайт не просто выглядел красиво, а действительно создавал
+          правильное впечатление, вызывал доверие и помогал продавать.
+        
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+              </div>
+
+              <div class="hero-bottom">
+                <div class="metric">
+                  <strong>Чисто</strong>
+                  <span class="muted">Современная подача без визуального шума и перегруза</span>
+                </div>
+                <div class="metric">
+                  <strong>Под ключ</strong>
+                  <span class="muted">От структуры и дизайна до верстки и запуска</span>
+                </div>
+                <div class="metric">
+                  <strong>Убедительно</strong>
+                  <span class="muted">Сайт помогает вызвать доверие и подвести к заявке</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <div class="visual-card">
+                <div class="visual-head">
+                  <span>Concept preview</span>
+                  <div class="dots"><span></span><span></span><span></span></div>
+                </div>
+
+                <div class="showcase">
+                  <div class="showcase-panel">
+                    <h3>Clean. Clear. Convincing.</h3>
+                    <p class="muted">Сайт как сильная и аккуратная презентация вашего уровня, а не как шаблонная страница.</p>
+                    <div class="mini-tags">
+                      <span>Strategy</span>
+                      <span>Design</span>
+                      <span>Launch</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="floating-card">
+                <strong>Что важно</strong>
+                <p class="muted">Первое впечатление от сайта часто решает, останется человек дальше или уйдёт.</p>
+              </div>
+
+              <div class="quote-card">
+                <p>«Хороший сайт объясняет ценность спокойно, уверенно и без лишнего шума.»</p>
+                <span class="muted">Подход к работе над проектами</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container editorial-grid">
+        <aside class="sticky-note reveal">
+          <span class="display">Подача решает.</span>
+          <p class="lead">
+            Даже сильная услуга может выглядеть слабо, если сайт не создаёт нужного ощущения.
+            Поэтому я собираю проекты не по шаблону, а под правильное восприятие бренда.
+          </p>
+        </aside>
+
+        <div>
+          <div class="section-head reveal">
+            <div class="eyebrow">Подход</div>
+            <h2>Сайт должен не просто существовать, а производить правильное впечатление</h2>
+          </div>
+
+          <div class="reasons-list">
+            <article class="reason-card reveal">
+              <div class="reason-top">
+                <h3>Упор на восприятие</h3>
+                <span class="index">01</span>
+              </div>
+              <p class="muted">Работа начинается не с эффектов, а с вопроса: как должен ощущаться ваш бренд в первые секунды.</p>
+            </article>
+
+            <article class="reason-card reveal">
+              <div class="reason-top">
+                <h3>Структура без лишнего</h3>
+                <span class="index">02</span>
+              </div>
+              <p class="muted">На странице остаются только те блоки, которые усиливают доверие, объясняют ценность и ведут к действию.</p>
+            </article>
+
+            <article class="reason-card reveal">
+              <div class="reason-top">
+                <h3>Дизайн, который усиливает бренд</h3>
+                <span class="index">03</span>
+              </div>
+              <p class="muted">Шрифты, отступы, композиция и цвет подбираются так, чтобы подача выглядела дороже и увереннее.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Услуги</div>
+          <h2>Что я могу разработать еще?</h2>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="service-top">
+              <h3>Сайт для вашего бизнеса</h3>
+              <span class="index">1</span>
+            </div>
+            <p class="muted">Сайт практически под любые цели. Сайт заказа ваших товаров/блюд и т.д</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-top">
+              <h3>QR Меню в вашем кафе</h3>
+              <span class="index">2</span>
+            </div>
+            <p class="muted">Гости теперь смогут заказывать еду или даже звать официанта с телефона.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-top">
+              <h3>Личный сайт</h3>
+              <span class="index">3</span>
+            </div>
+            <p class="muted">Несколько страниц, аккуратная упаковка бренда, блоки под услуги, преимущества, кейсы и контакты.</p>
+          </article>
+
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Процесс</div>
+          <h2>Работа идёт спокойно, но системно</h2>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card reveal">
+            <div class="process-top">
+              <h3>Бриф и задача</h3>
+              <span class="index">01</span>
+            </div>
+            <p class="muted">Определяем, для кого сайт, что он должен доносить и какое впечатление должен создавать.</p>
+          </article>
+
+          <article class="process-card reveal">
+            <div class="process-top">
+              <h3>Структура страницы</h3>
+              <span class="index">02</span>
+            </div>
+            <p class="muted">Собирается логика: какие блоки нужны, что ставить в первом экране и как вести человека по странице.</p>
+          </article>
+
+          <article class="process-card reveal">
+            <div class="process-top">
+              <h3>Дизайн и подача</h3>
+              <span class="index">03</span>
+            </div>
+            <p class="muted">Подбираются шрифты, палитра, ритм и детали, которые формируют аккуратный и сильный визуальный стиль.</p>
+          </article>
+
+          <article class="process-card reveal">
+            <div class="process-top">
+              <h3>Верстка и запуск</h3>
+              <span class="index">04</span>
+            </div>
+            <p class="muted">Дизайн переносится в рабочий сайт, настраивается адаптивность, форма связи и готовность к публикации.</p>
+          </article>
+        </div>
+      </div>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Пакеты</div>
+          <h2>Цены</h2>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card reveal">
+            <h3>Сайт для вашего бизнеса</h3>
+            <div class="price"> 29 999 ₸</div>
+            <div class="price-small">Для доставок блюд в кафе или просто продажа ваших товаров!</div>
+            <ul class="price-list">
+              <li>Ваш дизайн</li>
+              <li>Ваши ссылки на соц.сети</li>
+              <li>Форма заявки или WhatsApp</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">Выбрать формат</a>
+          </article>
+
+          <article class="price-card featured reveal">
+            <h3>QR Меню в вашем кафе!</h3>
+            <div class="price">34 999 ₸</div>
+            <div class="price-small">Гости теперь смогут заказывать еду или даже звать официанта с телефона!</div>
+            <ul class="price-list">
+              <li>Меню вашего кафе в телефоне</li>
+              <li>Возможность звать официанта с телефона</li>
+              <li>Ваш дизайн</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">Обсудить проект</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-layout">
+        <div class="contact-card reveal">
+          <div class="eyebrow">Связь</div>
+          
+          
+
+          
+
+        <div class="form-card reveal">
+          <form onsubmit="sendToWhatsApp(event)">
+            <div class="field">
+              <label for="name">Ваше имя</label>
+              <input id="name" type="text" placeholder="Например, Айжан" required>
+            </div>
+
+            <div class="field">
+              <label for="contactInput">Ваш контакт</label>
+              <input id="contactInput" type="text" placeholder="Телефон или @username" required>
+            </div>
+
+            <div class="field">
+              <label for="message">Что нужно сделать</label>
+              <textarea id="message" placeholder="Нужен сайт для услуг, хочу современную и аккуратную подачу с хорошим ощущением уровня" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+            
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-line"></div>
+      <div class="footer-row">
+        <p>© 2026 Amir Kadyrbaev </p>
+        <p>Clean pink concept for web services</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const contact = document.getElementById('contactInput').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const phone = '77000000000';
+      const text = `Новая заявка с сайта:%0A%0AИмя: ${name}%0AКонтакт: ${contact}%0AЗадача: ${message}`;
+      window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    document.querySelectorAll('.strip-phone img').forEach((img) => {
+      const frame = img.closest('.strip-phone');
+
+      const showFallback = () => {
+        if (!frame || frame.classList.contains('is-empty')) return;
+        frame.classList.add('is-empty');
+        img.remove();
+      };
+
+      if (img.complete) {
+        if (img.naturalWidth === 0) showFallback();
+        return;
+      }
+
+      img.addEventListener('error', showFallback, { once:true });
+    });
+  </script>
+</body>
+</html>
