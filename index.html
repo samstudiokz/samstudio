@@ -99,6 +99,28 @@
   font-size:clamp(48px, 7vw, 88px);
   max-width:16ch;
   margin:0 auto;
+  text-wrap:balance;
+}
+
+    .hero-title{
+  max-width:11ch;
+  display:grid;
+  gap:14px;
+  justify-items:center;
+}
+
+    .hero-title .price-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 24px;
+  border-radius:999px;
+  background:linear-gradient(135deg, rgba(255,79,163,0.16), rgba(255,255,255,0.98));
+  border:1px solid rgba(255,79,163,0.22);
+  box-shadow:0 16px 36px rgba(255,79,163,0.14);
+  font-size:0.68em;
+  line-height:1;
+  letter-spacing:-0.04em;
 }
 
     h2{
@@ -290,6 +312,9 @@
   display:grid;
   gap:20px;
   justify-items:center;
+  width:100%;
+  max-width:760px;
+  margin:0 auto;
 }
 
     .hero-note{
@@ -1020,8 +1045,18 @@
       .quote-card{padding:20px}
 
       h1{
-        font-size:clamp(36px, 12vw, 52px);
+        font-size:clamp(32px, 10.5vw, 44px);
         max-width:100%;
+      }
+
+      .hero-title{
+        max-width:9ch;
+        gap:10px;
+      }
+
+      .hero-title .price-pill{
+        padding:10px 18px;
+        font-size:0.64em;
       }
 
       h2{
@@ -1125,7 +1160,7 @@
       .visual-card,
       .quote-card{padding:18px}
 
-      h1{font-size:34px}
+      h1{font-size:32px}
       h2{font-size:28px}
       .showcase-panel h3{font-size:22px}
 
@@ -1335,7 +1370,10 @@
               <div class="hero-top">
                 
                 
-                <h1>Ваш личный сайт - от 29.999 ₸</h1>
+                <h1 class="hero-title">
+                  <span>Ваш&nbsp;личный сайт</span>
+                  <span class="price-pill">от 29.999 ₸</span>
+                </h1>
                 <p class="lead">
                   Пробный вариант вашего сайта БЕСПЛАТНО! Жми кнопку!
                 </p>
@@ -1730,7 +1768,7 @@
       const contact = document.getElementById('contactInput').value.trim();
       const message = document.getElementById('message').value.trim();
 
-      const phone = '77000000000';
+      const phone = '77067034501';
       const text = `Новая заявка с сайта:%0A%0AИмя: ${name}%0AКонтакт: ${contact}%0AЗадача: ${message}`;
       window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
     }
