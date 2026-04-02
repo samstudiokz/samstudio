@@ -8,38 +8,43 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#ffffff;
-      --bg-soft:#fff5fa;
-      --paper:rgba(255,255,255,0.92);
+      --bg:#f4f8f7;
+      --bg-soft:#e8f3f1;
+      --paper:rgba(255,255,255,0.9);
       --paper-strong:#ffffff;
-      --text:#191919;
-      --muted:#6f6f78;
-      --line:rgba(20,20,20,0.08);
-      --accent:#ff4fa3;
-      --accent-dark:#e13f8f;
-      --accent-soft:#ffe7f2;
-      --accent-soft-2:#fff1f7;
-      --shadow:0 22px 55px rgba(0,0,0,0.07);
+      --text:#111918;
+      --muted:#62716d;
+      --line:rgba(17,25,24,0.08);
+      --accent:#15998c;
+      --accent-dark:#0d7f74;
+      --accent-soft:#d7f5ef;
+      --accent-soft-2:#ecfcf8;
+      --shadow:0 22px 55px rgba(10,41,38,0.08);
       --radius:28px;
       --radius-sm:18px;
       --container:1180px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top:104px;
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
 
     body{
       font-family:'Manrope',sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at 10% 10%, rgba(255, 212, 232, 0.75), transparent 34%),
-        radial-gradient(circle at 90% 18%, rgba(255, 228, 240, 0.95), transparent 38%),
-        radial-gradient(circle at 50% 100%, rgba(255, 237, 246, 0.7), transparent 32%),
-        #ffffff;
+        radial-gradient(circle at 8% 8%, rgba(196, 241, 230, 0.82), transparent 32%),
+        radial-gradient(circle at 88% 14%, rgba(224, 247, 241, 0.94), transparent 36%),
+        radial-gradient(circle at 50% 100%, rgba(231, 247, 243, 0.72), transparent 34%),
+        #f4f8f7;
       line-height:1.5;
       overflow-x:hidden;
       -webkit-tap-highlight-color: transparent;
@@ -68,6 +73,15 @@
 
     .section{padding:100px 0}
 
+    main[id],
+    section[id]{
+      scroll-margin-top:104px;
+    }
+
+    #brief-form{
+      scroll-margin-top:120px;
+    }
+
     .eyebrow{
       display:inline-flex;
       align-items:center;
@@ -89,7 +103,7 @@
     }
 
     h1,h2,.display{
-  font-family:'Inter',sans-serif;
+  font-family:'Inter Tight',sans-serif;
   line-height:1.02;
   letter-spacing:-0.02em;
   font-weight:600;
@@ -124,9 +138,10 @@
   margin-top:8px;
   padding:14px 24px;
   border-radius:999px;
-  background:linear-gradient(135deg, rgba(255,79,163,0.16), rgba(255,255,255,0.98));
-  border:1px solid rgba(255,79,163,0.22);
-  box-shadow:0 16px 36px rgba(255,79,163,0.14);
+  background:linear-gradient(135deg, rgba(21,153,140,0.16), rgba(255,255,255,0.98));
+  border:1px solid rgba(21,153,140,0.22);
+  box-shadow:0 16px 36px rgba(21,153,140,0.14);
+  color:#0b201d;
   font-size:0.68em;
   line-height:1;
   letter-spacing:-0.04em;
@@ -159,8 +174,8 @@
       top:0;
       z-index:20;
       backdrop-filter:blur(14px);
-      background:rgba(255,255,255,0.78);
-      border-bottom:1px solid rgba(20,20,20,0.05);
+      background:rgba(8,18,17,0.76);
+      border-bottom:1px solid rgba(121,231,213,0.08);
     }
 
     .nav{
@@ -180,6 +195,7 @@
   letter-spacing:0;
   text-transform:none;
   min-width:0;
+  color:#ecfffb;
 }
 
 .brand-mark{
@@ -190,8 +206,8 @@
   place-items:center;
   flex-shrink:0;
   overflow:hidden;
-  background:linear-gradient(135deg, var(--accent), #ff7cbf);
-  box-shadow:0 12px 28px rgba(255,79,163,0.24);
+  background:linear-gradient(135deg, var(--accent), #52cbbb);
+  box-shadow:0 12px 28px rgba(21,153,140,0.24);
 }
 
 .brand-mark img{
@@ -209,11 +225,11 @@
 
     .nav-links a{
       font-size:15px;
-      color:var(--muted);
+      color:rgba(236,255,251,0.72);
       transition:.25s ease;
     }
 
-    .nav-links a:hover{color:var(--text)}
+    .nav-links a:hover{color:#ffffff}
 
     .btn{
       display:inline-flex;
@@ -231,46 +247,46 @@
     }
 
     .btn-primary{
-      background:linear-gradient(135deg, var(--accent), #ff78ba);
+      background:linear-gradient(135deg, var(--accent), #47c9bb);
       color:#fff;
-      box-shadow:0 14px 34px rgba(255,79,163,0.28);
+      box-shadow:0 14px 34px rgba(21,153,140,0.28);
     }
     
     .btn-dark{
-  background:#111;
+  background:linear-gradient(180deg, #101918, #0c1312);
   color:#fff;
-  border:1px solid #111;
+  border:1px solid rgba(121,231,213,0.12);
 }
 
 .btn-dark:hover{
-  background:#000;
+  background:linear-gradient(180deg, #14211f, #101918);
   transform:translateY(-2px);
 }
 
 .btn-dark{
-  background:#111;
+  background:linear-gradient(180deg, #101918, #0c1312);
   color:#fff;
-  border:1px solid #111;
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  border:1px solid rgba(121,231,213,0.12);
+  box-shadow:0 14px 34px rgba(6,24,22,0.22);
 }
 
 
     .btn-primary:hover{
       transform:translateY(-2px);
       background:linear-gradient(135deg, var(--accent-dark), var(--accent));
-      box-shadow:0 18px 38px rgba(255,79,163,0.32);
+      box-shadow:0 18px 38px rgba(21,153,140,0.32);
     }
 
     .btn-secondary{
-      border-color:rgba(20,20,20,0.08);
-      background:rgba(255,255,255,0.72);
+      border-color:rgba(17,25,24,0.08);
+      background:rgba(255,255,255,0.82);
       color:var(--text);
     }
 
     .btn-secondary:hover{
       transform:translateY(-2px);
       background:var(--accent-soft);
-      border-color:rgba(255,79,163,0.18);
+      border-color:rgba(21,153,140,0.18);
     }
 
     .burger{
@@ -279,8 +295,8 @@
       height:48px;
       border-radius:14px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,0.85);
-      color:var(--text);
+      background:rgba(255,255,255,0.06);
+      color:#ecfffb;
       font-size:20px;
       cursor:pointer;
       flex-shrink:0;
@@ -292,11 +308,39 @@
 
     .hero-shell{
       position:relative;
-      border:1px solid rgba(20,20,20,0.06);
+      border:1px solid rgba(121,231,213,0.12);
       border-radius:38px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.72));
-      box-shadow:var(--shadow);
+      background:
+        linear-gradient(160deg, rgba(8,19,18,0.98), rgba(12,35,33,0.96) 58%, rgba(17,50,47,0.94)),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+      box-shadow:0 34px 90px rgba(4,19,18,0.28);
       overflow:hidden;
+      isolation:isolate;
+    }
+
+    .hero-shell::before,
+    .hero-shell::after{
+      content:"";
+      position:absolute;
+      border-radius:50%;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .hero-shell::before{
+      width:420px;
+      height:420px;
+      right:-160px;
+      top:-110px;
+      background:radial-gradient(circle, rgba(63,223,197,0.22), transparent 68%);
+    }
+
+    .hero-shell::after{
+      width:360px;
+      height:360px;
+      left:-150px;
+      bottom:-160px;
+      background:radial-gradient(circle, rgba(27,131,120,0.2), transparent 70%);
     }
 
     .hero-grid{
@@ -305,9 +349,11 @@
       gap:18px;
       align-items:stretch;
       min-height:760px;
+      position:relative;
+      z-index:1;
     }
 
-    .hero-copy{
+.hero-copy{
   padding:48px 48px 54px;
   display:flex;
   flex-direction:column;
@@ -315,6 +361,7 @@
   align-items:center;
   text-align:center;
   gap:24px;
+  color:#f3fffd;
 }
 
     .hero-top{
@@ -333,11 +380,16 @@
       width:fit-content;
       padding:10px 14px;
       border-radius:999px;
-      background:var(--accent-soft);
-      border:1px solid rgba(255,79,163,0.14);
-      color:#9d4f77;
+      background:rgba(121,231,213,0.08);
+      border:1px solid rgba(121,231,213,0.16);
+      color:#9ff6e7;
       font-size:14px;
       font-weight:800;
+    }
+
+    .hero-copy .lead{
+      max-width:44ch;
+      color:rgba(227,248,243,0.78);
     }
 
     .hero-actions{
@@ -361,9 +413,9 @@
     .metric{
       padding:18px 18px 16px;
       border-radius:22px;
-      background:rgba(255,255,255,0.84);
-      border:1px solid rgba(20,20,20,0.06);
-      box-shadow:0 10px 28px rgba(0,0,0,0.04);
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(121,231,213,0.1);
+      box-shadow:none;
       min-width:0;
     }
 
@@ -373,6 +425,7 @@
       margin-bottom:4px;
       letter-spacing:-0.03em;
       overflow-wrap:anywhere;
+      color:#f5fffd;
     }
 
     .hero-visual{
@@ -382,9 +435,9 @@
       grid-template-rows:auto 1fr auto;
       gap:18px;
       background:
-        linear-gradient(145deg, rgba(255,79,163,0.06), rgba(255,235,244,0.9)),
-        rgba(255,255,255,0.56);
-      border-left:1px solid rgba(20,20,20,0.05);
+        linear-gradient(145deg, rgba(255,255,255,0.03), rgba(57,214,190,0.08)),
+        rgba(255,255,255,0.02);
+      border-left:1px solid rgba(121,231,213,0.08);
       min-width:0;
     }
 
@@ -399,10 +452,11 @@
     .form-card,
     .reason-card{
       border-radius:var(--radius);
-      background:var(--paper);
-      border:1px solid rgba(20,20,20,0.06);
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(244,251,249,0.88));
+      border:1px solid rgba(17,25,24,0.06);
       box-shadow:var(--shadow);
       min-width:0;
+      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
     }
 
     .visual-card{
@@ -430,14 +484,14 @@
       width:9px;
       height:9px;
       border-radius:50%;
-      background:rgba(255,79,163,0.28);
+      background:rgba(21,153,140,0.28);
     }
 
     .showcase{
       border-radius:24px;
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.2), rgba(255,79,163,0.08)),
-        linear-gradient(135deg, #fff7fb, #ffe7f2);
+        linear-gradient(180deg, rgba(255,255,255,0.2), rgba(21,153,140,0.08)),
+        linear-gradient(135deg, #f3fffc, #ddf8f2);
       padding:22px;
       min-height:320px;
       display:grid;
@@ -454,7 +508,7 @@
       width:180px;
       height:180px;
       border-radius:50%;
-      background:radial-gradient(circle, rgba(255,79,163,0.18), transparent 70%);
+      background:radial-gradient(circle, rgba(21,153,140,0.18), transparent 70%);
     }
 
     .showcase-panel{
@@ -463,14 +517,14 @@
       gap:14px;
       padding:24px;
       border-radius:24px;
-      background:rgba(255,255,255,0.9);
-      border:1px solid rgba(255,79,163,0.08);
+      background:rgba(250,255,254,0.92);
+      border:1px solid rgba(21,153,140,0.08);
       width:min(100%, 360px);
       z-index:1;
     }
 
     .showcase-panel h3{
-      font-family:'Inter',sans-serif;
+      font-family:'Inter Tight',sans-serif;
       font-size:32px;
       font-weight:800;
       line-height:1.05;
@@ -489,7 +543,7 @@
       background:var(--accent-soft);
       font-size:12px;
       font-weight:800;
-      color:#9d4f77;
+      color:#166e66;
     }
 
     .floating-card{
@@ -499,13 +553,21 @@
       width:220px;
       padding:18px;
       backdrop-filter:blur(10px);
-      background:rgba(255,255,255,0.84);
+      background:rgba(10,26,24,0.62);
+      border:1px solid rgba(121,231,213,0.1);
     }
 
     .floating-card strong{
       display:block;
       font-size:18px;
       margin-bottom:6px;
+      color:#f1fffc;
+    }
+
+    .floating-card .muted,
+    .quote-card .muted,
+    .hero-bottom .muted{
+      color:rgba(227,248,243,0.72);
     }
 
     .quote-card{
@@ -513,11 +575,14 @@
       display:grid;
       gap:10px;
       align-self:end;
+      background:rgba(10,26,24,0.7);
+      border:1px solid rgba(121,231,213,0.1);
     }
 
     .quote-card p{
       font-size:18px;
       max-width:34ch;
+      color:#f2fffd;
     }
 
     .section-head{
@@ -538,8 +603,8 @@
       top:106px;
       padding:34px;
       border-radius:32px;
-      background:rgba(255,246,250,0.9);
-      border:1px solid rgba(255,79,163,0.08);
+      background:rgba(240,252,249,0.92);
+      border:1px solid rgba(21,153,140,0.08);
       box-shadow:var(--shadow);
     }
 
@@ -564,6 +629,18 @@
     .portfolio-card,
     .price-card{
       padding:28px;
+    }
+
+    .reason-card:hover,
+    .service-card:hover,
+    .process-card:hover,
+    .portfolio-card:hover,
+    .price-card:hover,
+    .contact-card:hover,
+    .form-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 28px 60px rgba(10,41,38,0.12);
+      border-color:rgba(21,153,140,0.16);
     }
 
     .reason-top,
@@ -601,15 +678,15 @@
       flex-direction:column;
       justify-content:space-between;
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,247,251,0.88)),
+        linear-gradient(180deg, rgba(255,255,255,0.92), rgba(241,251,248,0.88)),
         #fff;
     }
 
     .portfolio-preview{
       min-height:150px;
       border-radius:22px;
-      border:1px solid rgba(255,79,163,0.08);
-      background:linear-gradient(135deg, #fff0f7, #ffe2ef);
+      border:1px solid rgba(21,153,140,0.08);
+      background:linear-gradient(135deg, #e6faf5, #d7f4ee);
       margin-bottom:18px;
       position:relative;
       overflow:hidden;
@@ -621,7 +698,7 @@
       position:absolute;
       border-radius:24px;
       background:rgba(255,255,255,0.82);
-      border:1px solid rgba(255,79,163,0.06);
+      border:1px solid rgba(21,153,140,0.06);
     }
 
     .portfolio-preview::before{
@@ -639,9 +716,9 @@
     }
 
     .price-card.featured{
-      background:linear-gradient(180deg, #ff4fa3, #f03b94);
+      background:linear-gradient(180deg, #15998c, #0d7f74);
       color:white;
-      box-shadow:0 22px 48px rgba(255,79,163,0.25);
+      box-shadow:0 22px 48px rgba(21,153,140,0.25);
     }
 
     .price-card.featured .muted,
@@ -661,7 +738,7 @@
     }
 
     .price{
-      font-family:'Inter',sans-serif;
+      font-family:'Inter Tight',sans-serif;
       font-size:48px;
       font-weight:900;
       line-height:.95;
@@ -714,8 +791,8 @@
     .point{
       padding:18px;
       border-radius:18px;
-      background:rgba(255,250,252,0.92);
-      border:1px solid rgba(20,20,20,0.06);
+      background:rgba(242,252,249,0.94);
+      border:1px solid rgba(17,25,24,0.06);
     }
 
     .point span{
@@ -757,9 +834,9 @@
     }
 
     input:focus,textarea:focus{
-      border-color:rgba(255,79,163,0.35);
+      border-color:rgba(21,153,140,0.35);
       background:#fff;
-      box-shadow:0 0 0 4px rgba(255,79,163,0.08);
+      box-shadow:0 0 0 4px rgba(21,153,140,0.08);
     }
 
     textarea{
@@ -773,12 +850,14 @@
     }
 
     .footer{
-      padding:28px 0 44px;
+      padding:36px 0 52px;
+      margin-top:24px;
+      background:linear-gradient(180deg, rgba(10,24,23,0.98), rgba(8,17,16,1));
     }
 
     .footer-line{
       height:1px;
-      background:rgba(20,20,20,0.08);
+      background:rgba(121,231,213,0.14);
       margin-bottom:24px;
     }
 
@@ -788,7 +867,7 @@
       justify-content:space-between;
       gap:16px;
       flex-wrap:wrap;
-      color:var(--muted);
+      color:rgba(229,249,244,0.72);
     }
 
     .reveal{
@@ -803,7 +882,7 @@
     }
 
 .about-me-block{
-  padding-top:40px;
+  padding:56px 0 20px;
 }
 
 .about-me-wrap{
@@ -825,8 +904,9 @@
   height:180px;
   border-radius:50%;
   overflow:hidden;
-  border:4px solid #111;
-  background:#f3f3f3;
+  border:4px solid rgba(21,153,140,0.16);
+  background:#f3f8f7;
+  box-shadow:var(--shadow);
 }
 
 .about-me-avatar img{
@@ -840,34 +920,40 @@
   min-width:340px;
   text-align:center;
   padding:12px 24px;
-  border:3px solid #111;
-  border-radius:16px;
-  background:#fff;
+  border:1px solid rgba(13,127,116,0.14);
+  border-radius:18px;
+  background:linear-gradient(180deg, rgba(228,244,240,0.98), rgba(208,231,226,0.96));
   font-size:18px;
   font-weight:600;
+  color:#10211f;
+  box-shadow:0 18px 42px rgba(6,25,23,0.1);
 }
 
 .about-me-card{
   width:100%;
   max-width:920px;
-  border:4px solid #111;
+  border:1px solid rgba(13,127,116,0.12);
   border-radius:24px;
-  background:#fff;
-  padding:28px;
+  background:linear-gradient(180deg, rgba(239,248,246,0.98), rgba(224,238,235,0.96));
+  box-shadow:0 24px 58px rgba(6,25,23,0.12);
+  padding:32px 30px;
 }
 
 .about-me-card h2{
-  font-family:'Inter',sans-serif;
+  font-family:'Inter Tight',sans-serif;
   font-size:36px;
   font-weight:700;
-  margin-bottom:18px;
+  margin-bottom:20px;
+  text-align:center;
+  color:#0d1f1d;
+  text-shadow:none;
 }
 
 .about-me-card p{
   font-size:20px;
   line-height:1.7;
-  margin-bottom:14px;
-  color:#111;
+  margin-bottom:16px;
+  color:rgba(17,25,24,0.9);
 }
 
     @media (max-width:1120px){
@@ -908,9 +994,9 @@
         gap:10px;
         padding:14px;
         border-radius:20px;
-        background:rgba(255,255,255,0.97);
-        border:1px solid rgba(20,20,20,0.06);
-        box-shadow:var(--shadow);
+        background:rgba(8,18,17,0.96);
+        border:1px solid rgba(121,231,213,0.12);
+        box-shadow:0 24px 54px rgba(4,19,18,0.22);
         transform:translateY(-14px);
         opacity:0;
         pointer-events:none;
@@ -920,7 +1006,8 @@
       .nav-links a{
         padding:12px 14px;
         border-radius:14px;
-        background:rgba(255,255,255,0.88);
+        background:rgba(255,255,255,0.04);
+        color:#e8fffb;
       }
 
       .nav-links.active{
@@ -1026,7 +1113,7 @@
 }
       .section{padding:72px 0}
       .container{width:min(var(--container), calc(100% - 20px))}
-      .topbar{background:rgba(255,255,255,0.9)}
+      .topbar{background:rgba(8,18,17,0.9)}
 
 .brand{
   gap:10px;
@@ -1194,16 +1281,43 @@
     }
 
 .portfolio-strip{
+  position:relative;
   margin-top:40px;
   overflow:hidden;
   padding:8px 0 4px;
+  user-select:none;
+}
+
+.portfolio-strip::before,
+.portfolio-strip::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:56px;
+  z-index:2;
+  pointer-events:none;
+}
+
+.portfolio-strip::before{
+  left:0;
+  background:linear-gradient(90deg, rgba(8,19,18,0.96), rgba(8,19,18,0));
+}
+
+.portfolio-strip::after{
+  right:0;
+  background:linear-gradient(270deg, rgba(8,19,18,0.96), rgba(8,19,18,0));
 }
 
 .strip-track{
   display:flex;
   width:max-content;
   will-change:transform;
-  animation:scroll 24s linear infinite;
+  animation:scroll var(--loop-duration, 24s) linear infinite;
+}
+
+.portfolio-strip.is-paused .strip-track{
+  animation-play-state:paused;
 }
 
 .strip-group{
@@ -1211,6 +1325,7 @@
   align-items:flex-start;
   gap:24px;
   padding-right:24px;
+  flex-shrink:0;
 }
 
 .strip-item{
@@ -1221,16 +1336,31 @@
   width:210px;
 }
 
+@keyframes scroll{
+  from{
+    transform:translate3d(0, 0, 0);
+  }
+  to{
+    transform:translate3d(calc(-1 * var(--loop-shift, 0px)), 0, 0);
+  }
+}
+
 .strip-phone{
   position:relative;
   width:100%;
   aspect-ratio:9 / 19.5;
   padding:6px;
   border-radius:32px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,241,247,0.98));
-  border:1px solid rgba(20,20,20,0.08);
-  box-shadow:0 18px 38px rgba(0,0,0,0.1);
+  background:linear-gradient(180deg, rgba(10,18,17,0.98), rgba(20,37,35,0.98));
+  border:1px solid rgba(121,231,213,0.12);
+  box-shadow:0 18px 38px rgba(4,19,18,0.18);
   overflow:hidden;
+  cursor:zoom-in;
+}
+
+.strip-phone:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(121,231,213,0.22), 0 18px 38px rgba(4,19,18,0.18);
 }
 
 .strip-phone::before{
@@ -1254,6 +1384,15 @@
   border-radius:26px;
   display:block;
   background:#fff;
+  transition:transform .3s ease;
+}
+
+.strip-phone:hover img{
+  transform:scale(1.03);
+}
+
+.strip-phone.is-empty{
+  cursor:default;
 }
 
 .strip-phone.is-empty::after{
@@ -1264,8 +1403,8 @@
   place-items:center;
   padding:24px;
   border-radius:26px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,243,248,0.98));
-  color:var(--muted);
+  background:linear-gradient(180deg, rgba(16,28,27,0.98), rgba(22,40,38,0.98));
+  color:rgba(229,249,244,0.72);
   font-size:14px;
   font-weight:700;
   line-height:1.35;
@@ -1275,22 +1414,18 @@
 .strip-item span{
   font-size:14px;
   line-height:1.25;
-  color:#444;
+  color:rgba(229,249,244,0.76);
   font-weight:600;
   max-width:18ch;
   text-align:center;
 }
 
-@keyframes scroll{
-  from{
-    transform:translateX(0);
-  }
-  to{
-    transform:translateX(-50%);
-  }
-}
-
 @media (max-width:640px){
+
+  .portfolio-strip::before,
+  .portfolio-strip::after{
+    width:30px;
+  }
 
   .strip-group{
     gap:16px;
@@ -1326,7 +1461,7 @@
   font-weight:600;
   letter-spacing:0.18em;
 
-  color:rgba(0,0,0,0.5);
+  color:rgba(229,249,244,0.62);
   text-align:center;
 }
 
@@ -1338,6 +1473,85 @@
   background:var(--accent);
   margin:0 auto 10px;
   opacity:0.6;
+}
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  display:grid;
+  place-items:center;
+  padding:28px;
+  background:rgba(3,12,11,0.82);
+  backdrop-filter:blur(12px);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .28s ease;
+  z-index:60;
+}
+
+.lightbox.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.lightbox-dialog{
+  position:relative;
+  width:min(100%, 1180px);
+  display:grid;
+  justify-items:center;
+  gap:16px;
+}
+
+.lightbox-frame{
+  width:min(100%, 420px);
+  max-height:min(82vh, 920px);
+  padding:10px;
+  border-radius:38px;
+  background:linear-gradient(180deg, rgba(9,19,18,0.98), rgba(22,40,38,0.98));
+  border:1px solid rgba(121,231,213,0.14);
+  box-shadow:0 28px 90px rgba(0,0,0,0.32);
+}
+
+.lightbox-image{
+  width:100%;
+  height:100%;
+  max-height:min(calc(82vh - 20px), 900px);
+  object-fit:contain;
+  border-radius:28px;
+  background:#091413;
+}
+
+.lightbox-caption{
+  max-width:32ch;
+  text-align:center;
+  color:rgba(233,251,247,0.86);
+  font-size:15px;
+  line-height:1.45;
+}
+
+.lightbox-close{
+  position:absolute;
+  top:-8px;
+  right:-8px;
+  width:52px;
+  height:52px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,0.1);
+  color:#f2fffd;
+  font-size:24px;
+  cursor:pointer;
+  backdrop-filter:blur(8px);
+  transition:transform .25s ease, background .25s ease;
+}
+
+.lightbox-close:hover{
+  transform:scale(1.05);
+  background:rgba(255,255,255,0.16);
+}
+
+body.lightbox-open{
+  overflow:hidden;
 }
 
 .btn-big{
@@ -1369,18 +1583,18 @@
         <span class="brand-mark">
   <img src="https://i.ibb.co.com/YBbcx510/image.png" alt="Амир">
 </span>
-        <span>Меня зовут Амир!</span>
+        <span></span>
       </a>
 
       <nav class="nav-links" id="navLinks">
         <a href="#about">Подход</a>
         <a href="#services">Услуги</a>
-      
+        <a href="#portfolio">Кейсы</a>
         <a href="#pricing">Пакеты</a>
         <a href="#contact">Контакт</a>
       </nav>
 
-      <a href="#contact" class="btn btn-primary nav-action">Обсудить проект</a>
+      <a href="#brief-form" class="btn btn-primary nav-action">Обсудить проект</a>
       <button class="burger" id="burger" aria-label="Открыть меню">☰</button>
     </div>
   </header>
@@ -1392,22 +1606,21 @@
           <div class="hero-grid">
             <div class="hero-copy">
               <div class="hero-top">
-                
-                
+                <div class="hero-note">Пример вашего сайта - бесплатно!</div>
                 <h1 class="hero-title">
-                  <span class="title-main">Ваш&nbsp;личный<br>сайт</span>
+                  <span class="title-main">Ваш личный сайт<br>для бизнеса и кафе</span>
                   <span class="price-pill">от 29.999 ₸</span>
                 </h1>
                 <p class="lead">
-                  Пробный вариант вашего сайта БЕСПЛАТНО! Жми кнопку!
+                  Делаю современные сайты и QR-меню, которые помогают выглядеть сильнее, вызывать доверие и спокойно доводить человека до заявки или заказа.
                 </p>
                 <div class="hero-actions">
-  <a href="#contact" class="btn btn-primary btn-big">Купить сайт</a>
-  <a href="#pricing" class="btn btn-dark btn-medium">Сколько стоит?</a>
-  <a href="#about-me" class="btn btn-secondary btn-small">Кто я?</a>
+  <a href="#brief-form" class="btn btn-primary btn-big">Обсудить проект</a>
+  <a href="#pricing" class="btn btn-dark btn-medium">Пакеты и цены</a>
+  <a href="#about-me" class="btn btn-secondary btn-small">Обо мне</a>
 </div>
-                <div class="portfolio-title">Мои работы</div>
-                <section class="portfolio-strip">
+                <div class="portfolio-title">Последние проекты</div>
+                <section class="portfolio-strip" id="portfolio">
   <div class="strip-track">
     <div class="strip-group">
       <div class="strip-item">
@@ -1463,7 +1676,7 @@
 
       <div class="strip-item">
         <div class="strip-phone">
-          <img src="https://i.ibb.co.com/Xf4ysqqw/image.png" loading="lazy">
+          <img src="https://i.ibb.co.com/Xf4ysqqw/image.png" alt="Сайт 3" loading="lazy">
         </div>
         <span>Кафе "Life Vibe" Улица Луганская, 132/1</span>
       </div>
@@ -1479,7 +1692,7 @@
         <div class="strip-phone">
           <img src="https://i.ibb.co.com/XxcLxFbP/image.png" alt="Сайт 5" loading="lazy">
         </div>
-        <span>Сайт доставок Кафе "Чайхана"</span>
+        <span>Кафе "Чайхана" Луначарского 38 А</span>
       </div>
     </div>
   </div>
@@ -1499,18 +1712,15 @@
       <div class="about-me-card">
         <h2>Обо мне</h2>
         <p>
-          Я учусь в Карагандинском Высшем Политехническом Колледже на программиста!
-          
+          Меня зовут Амир. Я делаю сайты и QR-меню для кафе, небольшого бизнеса и личных проектов, где важны чистая подача, удобство и нормальное впечатление с первых секунд.
         </p>
 
         <p>
-          Мне 19 лет, раньше работав официантом мне как-то пришла идея разрабоать сайт для кафе, что у меня прекрассно получилось!
+          Мой интерес к сайтам начался с реальной задачи: сделать понятный и полезный продукт для заведений. Поэтому мне особенно близки проекты, где сайт должен не просто “быть”, а реально помогать бизнесу.
         </p>
 
         <p>
-          Для меня важно, чтобы сайт не просто выглядел красиво, а действительно создавал
-          правильное впечатление, вызывал доверие и помогал продавать.
-        
+          Мне 19 лет, я учусь в Карагандинском Высшем Политехническом Колледже на программиста!
         </p>
       </div>
     </div>
@@ -1521,209 +1731,87 @@
 
               <div class="hero-bottom">
                 <div class="metric">
-                  <strong>Чисто</strong>
-                  <span class="muted">Современная подача без визуального шума и перегруза</span>
+                  <strong>Бесплатный пример</strong>
+                  <span class="muted">Пример вашего будущего сайта при консультации со мной</span>
                 </div>
                 <div class="metric">
-                  <strong>Под ключ</strong>
-                  <span class="muted">От структуры и дизайна до верстки и запуска</span>
+                  <strong>Реальные клиенты</strong>
+                  <span class="muted">Работы с адресами предприятий</span>
                 </div>
                 <div class="metric">
-                  <strong>Убедительно</strong>
-                  <span class="muted">Сайт помогает вызвать доверие и подвести к заявке</span>
+                  <strong>Под вашу задачу</strong>
+                  <span class="muted">Сайт подстраивается под меню, доставку, запись, услуги или презентацию бизнеса</span>
                 </div>
               </div>
             </div>
 
-            <div class="hero-visual">
-              <div class="visual-card">
-                <div class="visual-head">
-                  <span>Concept preview</span>
-                  <div class="dots"><span></span><span></span><span></span></div>
-                </div>
-
-                <div class="showcase">
-                  <div class="showcase-panel">
-                    <h3>Clean. Clear. Convincing.</h3>
-                    <p class="muted">Сайт как сильная и аккуратная презентация вашего уровня, а не как шаблонная страница.</p>
-                    <div class="mini-tags">
-                      <span>Strategy</span>
-                      <span>Design</span>
-                      <span>Launch</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="floating-card">
-                <strong>Что важно</strong>
-                <p class="muted">Первое впечатление от сайта часто решает, останется человек дальше или уйдёт.</p>
-              </div>
-
-              <div class="quote-card">
-                <p>«Хороший сайт объясняет ценность спокойно, уверенно и без лишнего шума.»</p>
-                <span class="muted">Подход к работе над проектами</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="container editorial-grid">
-        <aside class="sticky-note reveal">
-          <span class="display">Подача решает.</span>
-          <p class="lead">
-            Даже сильная услуга может выглядеть слабо, если сайт не создаёт нужного ощущения.
-            Поэтому я собираю проекты не по шаблону, а под правильное восприятие бренда.
-          </p>
-        </aside>
-
-        <div>
-          <div class="section-head reveal">
-            <div class="eyebrow">Подход</div>
-            <h2>Сайт должен не просто существовать, а производить правильное впечатление</h2>
-          </div>
-
-          <div class="reasons-list">
-            <article class="reason-card reveal">
-              <div class="reason-top">
-                <h3>Упор на восприятие</h3>
-                <span class="index">01</span>
-              </div>
-              <p class="muted">Работа начинается не с эффектов, а с вопроса: как должен ощущаться ваш бренд в первые секунды.</p>
-            </article>
-
-            <article class="reason-card reveal">
-              <div class="reason-top">
-                <h3>Структура без лишнего</h3>
-                <span class="index">02</span>
-              </div>
-              <p class="muted">На странице остаются только те блоки, которые усиливают доверие, объясняют ценность и ведут к действию.</p>
-            </article>
-
-            <article class="reason-card reveal">
-              <div class="reason-top">
-                <h3>Дизайн, который усиливает бренд</h3>
-                <span class="index">03</span>
-              </div>
-              <p class="muted">Шрифты, отступы, композиция и цвет подбираются так, чтобы подача выглядела дороже и увереннее.</p>
-            </article>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section class="section" id="services">
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Услуги</div>
-          <h2>Что я могу разработать еще?</h2>
+          <h2>Что можно запустить под ваш запрос</h2>
         </div>
 
         <div class="service-grid">
           <article class="service-card reveal">
             <div class="service-top">
-              <h3>Сайт для вашего бизнеса</h3>
+              <h3>Сайт для бизнеса</h3>
               <span class="index">1</span>
             </div>
-            <p class="muted">Сайт практически под любые цели. Сайт заказа ваших товаров/блюд и т.д</p>
+            <p class="muted">Для услуг, доставки, небольшого каталога, презентации компании или аккуратной упаковки бренда.</p>
           </article>
 
           <article class="service-card reveal">
             <div class="service-top">
-              <h3>QR Меню в вашем кафе</h3>
+              <h3>QR-меню для кафе</h3>
               <span class="index">2</span>
             </div>
-            <p class="muted">Гости теперь смогут заказывать еду или даже звать официанта с телефона.</p>
+            <p class="muted">Меню в телефоне гостя, удобная навигация по позициям и, если нужно, кнопка вызова официанта.</p>
           </article>
 
           <article class="service-card reveal">
             <div class="service-top">
-              <h3>Личный сайт</h3>
+              <h3>Лендинг / личный сайт</h3>
               <span class="index">3</span>
             </div>
-            <p class="muted">Несколько страниц, аккуратная упаковка бренда, блоки под услуги, преимущества, кейсы и контакты.</p>
-          </article>
-
-          
+            <p class="muted">Для экспертов, специалистов и небольших команд, которым нужна уверенная и современная подача.</p>
+          </article>    
         </div>
       </div>
     </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow">Процесс</div>
-          <h2>Работа идёт спокойно, но системно</h2>
-        </div>
-
-        <div class="process-grid">
-          <article class="process-card reveal">
-            <div class="process-top">
-              <h3>Бриф и задача</h3>
-              <span class="index">01</span>
-            </div>
-            <p class="muted">Определяем, для кого сайт, что он должен доносить и какое впечатление должен создавать.</p>
-          </article>
-
-          <article class="process-card reveal">
-            <div class="process-top">
-              <h3>Структура страницы</h3>
-              <span class="index">02</span>
-            </div>
-            <p class="muted">Собирается логика: какие блоки нужны, что ставить в первом экране и как вести человека по странице.</p>
-          </article>
-
-          <article class="process-card reveal">
-            <div class="process-top">
-              <h3>Дизайн и подача</h3>
-              <span class="index">03</span>
-            </div>
-            <p class="muted">Подбираются шрифты, палитра, ритм и детали, которые формируют аккуратный и сильный визуальный стиль.</p>
-          </article>
-
-          <article class="process-card reveal">
-            <div class="process-top">
-              <h3>Верстка и запуск</h3>
-              <span class="index">04</span>
-            </div>
-            <p class="muted">Дизайн переносится в рабочий сайт, настраивается адаптивность, форма связи и готовность к публикации.</p>
-          </article>
-        </div>
-      </div>
 
     <section class="section" id="pricing">
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Пакеты</div>
-          <h2>Цены</h2>
+          <h2>Форматы и стоимость</h2>
         </div>
 
         <div class="pricing-grid">
           <article class="price-card reveal">
-            <h3>Сайт для вашего бизнеса</h3>
-            <div class="price"> 29 999 ₸</div>
-            <div class="price-small">Для доставок блюд в кафе или просто продажа ваших товаров!</div>
+            <h3>Сайт для бизнеса</h3>
+            <div class="price">29 999 ₸</div>
+            <div class="price-small">Для услуг, доставки, презентации бизнеса или продажи товаров в аккуратной подаче</div>
             <ul class="price-list">
-              <li>Ваш дизайн</li>
-              <li>Ваши ссылки на соц.сети</li>
+              <li>Структура под вашу задачу</li>
+              <li>Ваш стиль и ссылки на соцсети</li>
               <li>Форма заявки или WhatsApp</li>
             </ul>
             <a href="#contact" class="btn btn-secondary">Выбрать формат</a>
           </article>
 
           <article class="price-card featured reveal">
-            <h3>QR Меню в вашем кафе!</h3>
+            <h3>QR-меню для кафе</h3>
             <div class="price">34 999 ₸</div>
-            <div class="price-small">Гости теперь смогут заказывать еду или даже звать официанта с телефона!</div>
+            <div class="price-small">Для заведений, где важно быстро показать меню и упростить взаимодействие с гостем</div>
             <ul class="price-list">
-              <li>Меню вашего кафе в телефоне</li>
-              <li>Возможность звать официанта с телефона</li>
-              <li>Ваш дизайн</li>
+              <li>Меню в телефоне гостя</li>
+              <li>Кнопка вызова официанта при необходимости</li>
+              <li>Адаптация под стиль вашего заведения</li>
             </ul>
-            <a href="#contact" class="btn btn-secondary">Обсудить проект</a>
+            <a href="#brief-form" class="btn btn-secondary">Обсудить проект</a>
           </article>
         </div>
       </div>
@@ -1733,12 +1821,10 @@
       <div class="container contact-layout">
         <div class="contact-card reveal">
           <div class="eyebrow">Связь</div>
-          
-          
+          <h2>Можно начать с короткого сообщения</h2>        
+        </div>
 
-          
-
-        <div class="form-card reveal">
+        <div class="form-card reveal" id="brief-form">
           <form onsubmit="sendToWhatsApp(event)">
             <div class="field">
               <label for="name">Ваше имя</label>
@@ -1752,11 +1838,11 @@
 
             <div class="field">
               <label for="message">Что нужно сделать</label>
-              <textarea id="message" placeholder="Нужен сайт для услуг, хочу современную и аккуратную подачу с хорошим ощущением уровня" required></textarea>
+              <textarea id="message" placeholder="Нужен сайт или QR-меню. Важно, чтобы выглядело аккуратно, современно и вызывало доверие" required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Отправить сообщение</button>
-            
+            <button type="submit" class="btn btn-primary">Написать в WhatsApp</button>
+            <p class="note">Чем конкретнее опишете задачу, тем быстрее я предложу подходящий формат.</p>
           </form>
         </div>
       </div>
@@ -1768,22 +1854,101 @@
       <div class="footer-line"></div>
       <div class="footer-row">
         <p>© 2026 Amir Kadyrbaev </p>
-        <p>Clean pink concept for web services</p>
+        <p>Сайты и QR-меню для бизнеса, кафе и личных проектов</p>
       </div>
     </div>
   </footer>
 
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-dialog">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Закрыть просмотр">×</button>
+      <div class="lightbox-frame">
+        <img class="lightbox-image" id="lightboxImage" alt="">
+      </div>
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+
   <script>
     const burger = document.getElementById('burger');
     const navLinks = document.getElementById('navLinks');
+    const topLinks = document.querySelectorAll('a[href="#top"]');
+    const heroSection = document.querySelector('.hero');
+    const aboutMeSection = document.getElementById('about-me');
+    const portfolioStrip = document.querySelector('.portfolio-strip');
+    const stripTrack = document.querySelector('.strip-track');
+    const firstStripGroup = stripTrack?.querySelector('.strip-group');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+    let stripLoopPaused = false;
 
     burger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
 
+    if (heroSection && aboutMeSection && aboutMeSection.parentElement !== heroSection.parentElement) {
+      heroSection.insertAdjacentElement('afterend', aboutMeSection);
+    }
+
     navLinks.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => navLinks.classList.remove('active'));
     });
+
+    topLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        closeLightbox();
+        navLinks.classList.remove('active');
+        window.scrollTo({ top:0, behavior:'smooth' });
+
+        try {
+          const cleanUrl = `${window.location.pathname}${window.location.search}`;
+          window.history.replaceState(null, '', cleanUrl);
+        } catch (error) {
+        }
+      });
+    });
+
+    function syncStripLoop() {
+      if (!stripTrack || !firstStripGroup) return;
+
+      const shift = firstStripGroup.getBoundingClientRect().width;
+      if (!shift) return;
+
+      stripTrack.style.setProperty('--loop-shift', `${shift}px`);
+      stripTrack.style.setProperty('--loop-duration', `${Math.max(18, shift / 34).toFixed(2)}s`);
+      stripTrack.style.animation = 'none';
+      stripTrack.offsetHeight;
+      stripTrack.style.animation = '';
+    }
+
+    function setStripPaused(value) {
+      stripLoopPaused = value;
+      portfolioStrip?.classList.toggle('is-paused', value);
+    }
+
+    function openLightbox(src, alt, caption) {
+      if (!lightbox || !lightboxImage || !lightboxCaption) return;
+      setStripPaused(true);
+      lightboxImage.src = src;
+      lightboxImage.alt = alt || caption || 'Просмотр проекта';
+      lightboxCaption.textContent = caption || alt || '';
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lightbox-open');
+    }
+
+    function closeLightbox() {
+      if (!lightbox || !lightboxImage || !lightboxCaption) return;
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lightbox-open');
+      lightboxImage.removeAttribute('src');
+      lightboxCaption.textContent = '';
+      setStripPaused(false);
+    }
 
     function sendToWhatsApp(event) {
       event.preventDefault();
@@ -1806,22 +1971,63 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    syncStripLoop();
+    window.addEventListener('load', syncStripLoop);
+    window.addEventListener('resize', syncStripLoop);
+
+    portfolioStrip?.addEventListener('mouseenter', () => setStripPaused(true));
+    portfolioStrip?.addEventListener('mouseleave', () => setStripPaused(false));
+    portfolioStrip?.addEventListener('focusin', () => setStripPaused(true));
+    portfolioStrip?.addEventListener('focusout', () => setStripPaused(false));
+
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightbox?.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox?.classList.contains('open')) {
+        closeLightbox();
+      }
+    });
 
     document.querySelectorAll('.strip-phone img').forEach((img) => {
       const frame = img.closest('.strip-phone');
+      const caption = img.closest('.strip-item')?.querySelector('span')?.textContent?.trim() || img.alt || '';
+      const openPreview = () => {
+        if (!frame || frame.classList.contains('is-empty')) return;
+        openLightbox(img.currentSrc || img.src, img.alt, caption);
+      };
 
       const showFallback = () => {
         if (!frame || frame.classList.contains('is-empty')) return;
         frame.classList.add('is-empty');
+        frame.removeAttribute('role');
+        frame.removeAttribute('tabindex');
+        frame.removeAttribute('aria-label');
         img.remove();
       };
 
-      if (img.complete) {
-        if (img.naturalWidth === 0) showFallback();
-        return;
+      if (frame) {
+        frame.setAttribute('role', 'button');
+        frame.setAttribute('tabindex', '0');
+        frame.setAttribute('aria-label', `Открыть проект: ${caption || img.alt || 'Работа'}`);
       }
 
-      img.addEventListener('error', showFallback, { once:true });
+      if (img.complete) {
+        if (img.naturalWidth === 0) showFallback();
+      } else {
+        img.addEventListener('error', showFallback, { once:true });
+        img.addEventListener('load', syncStripLoop, { once:true });
+      }
+
+      frame?.addEventListener('click', openPreview);
+      frame?.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openPreview();
+        }
+      });
     });
   </script>
 </body>
